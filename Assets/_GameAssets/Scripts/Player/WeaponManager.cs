@@ -25,6 +25,8 @@ public class WeaponManager : MonoBehaviour
             Recargar();
         }
 
+
+        //Cambio de arma con rueda del ratón
         if (Input.mouseScrollDelta.y > 0)
         {
             CambiarArma(1);
@@ -33,6 +35,21 @@ public class WeaponManager : MonoBehaviour
         {
             CambiarArma(-1);
         }
+
+        //Cambio de arma con número
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CambiarArmaPorNumero(0);
+        } 
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CambiarArmaPorNumero(1);
+        } 
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CambiarArmaPorNumero(2);
+        }
+
     }
     private void CambiarArma(int delta)
     {
@@ -52,22 +69,26 @@ public class WeaponManager : MonoBehaviour
             Invoke("ActivarCambioArma", cadenciaCambioDeArma);
         }
     }
-
     private void ActivarCambioArma()
     {
         cambioArmaDisponible = true;
     }
-
     private void ApretarGatillo()
     {
         //Decir al arma activa que dispare.
         print("Apretando gatillo...");
+        armas[idArmaActiva].GetComponent<Weapon>().Disparar();
     }
     private void Recargar()
     {
         //Decir al arma activa que se recarge
         print("Recargando...");
+        armas[idArmaActiva].GetComponent<Weapon>().Recargar();
     }
-   
-
+    private void CambiarArmaPorNumero(int nuevoIdArma)
+    {
+        armas[idArmaActiva].SetActive(false);
+        idArmaActiva = nuevoIdArma;
+        armas[idArmaActiva].SetActive(true);
+    }
 }
