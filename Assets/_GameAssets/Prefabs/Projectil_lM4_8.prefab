@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5944369754360174120}
   - component: {fileID: 5944369754360174123}
+  - component: {fileID: -8298618203921516800}
   m_Layer: 0
   m_Name: Projectil_lM4_8
   m_TagString: Untagged
@@ -492,3 +493,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8298618203921516800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944369754360174122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08f755b5e8e804787df541d2f7b3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danyo: 25

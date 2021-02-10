@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemigoTonto : MonoBehaviour
 {
+    public int salud = 100;
+
+    public TextMesh texto;
+
     public string nombre;
     [Range(1, 10)]
     public float velocidad;
@@ -14,8 +18,15 @@ public class EnemigoTonto : MonoBehaviour
     [Range(45, 180)]
     public float giroMaximo;
 
+    public void QuitarVida(int quita)
+    {
+        salud = salud - quita;
+        texto.text = salud.ToString();
+    }
+
     private void Start()
     {
+        texto.text = salud.ToString();
         InvokeRepeating("Rotar", tiempoEntreRotacion, tiempoEntreRotacion);
     }
 
@@ -28,5 +39,5 @@ public class EnemigoTonto : MonoBehaviour
     {
         transform.Rotate(0, Random.Range(giroMinimo, giroMaximo), 0);
     }
-    
+
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Asfalto
+  - Enemigo
   layers:
   - Default
   - TransparentFX

@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 7874875767623113743}
   - component: {fileID: 1027147972036263874}
   - component: {fileID: 5834611169041349701}
+  - component: {fileID: -8979503358470437423}
   m_Layer: 0
   m_Name: ProyectilUZI
   m_TagString: Untagged
@@ -207,3 +208,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03888035, y: 0.041727066, z: 0.10044098}
   m_Center: {x: -0.0007739067, y: 0.000957489, z: 0.046337128}
+--- !u!114 &-8979503358470437423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902435421225088814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08f755b5e8e804787df541d2f7b3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danyo: 30

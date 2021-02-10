@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Temblador : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //A medias entre Víctor y Fernando
+    private float velocidad;
+    private float escalaInicial;
+    public float amplitud;
+    public float frecuencia;
+    private void Start()
     {
-        
+        escalaInicial = transform.localScale.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        velocidad = Mathf.Sin(Time.time * Mathf.PI / 2 * frecuencia) * amplitud;
+        transform.localScale = new Vector3(
+            escalaInicial + velocidad,
+            escalaInicial + velocidad,
+            escalaInicial + velocidad);
     }
 }
