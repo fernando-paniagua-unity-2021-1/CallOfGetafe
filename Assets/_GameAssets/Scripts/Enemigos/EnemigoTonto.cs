@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoTonto : MonoBehaviour
+public class EnemigoTonto : Enemigo
 {
-    public int salud = 100;
-
-    public TextMesh texto;
-
-    public string nombre;
     [Range(1, 10)]
     public float velocidad;
     [Range(1, 5)]
@@ -17,13 +12,6 @@ public class EnemigoTonto : MonoBehaviour
     public float giroMinimo;
     [Range(45, 180)]
     public float giroMaximo;
-
-    public void QuitarVida(int quita)
-    {
-        salud = salud - quita;
-        texto.text = salud.ToString();
-    }
-
     private void Start()
     {
         texto.text = salud.ToString();
