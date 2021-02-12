@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemigoTonto : Enemigo
 {
-    [Range(1, 10)]
+    [Range(0, 10)]
     public float velocidad;
     [Range(1, 5)]
     public float tiempoEntreRotacion;

@@ -10,8 +10,8 @@ public class Proyectil : MonoBehaviour
         //Comprueba que ha impactado con el enemigo
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
-            enemigo.QuitarVida(danyo);
+            Enemigo enemigo = collision.gameObject.GetComponentInParent<Enemigo>();
+            enemigo.QuitarVida(danyo, collision.GetContact(0));
         }
         //Destruye el proyectil
         Destroy(gameObject);

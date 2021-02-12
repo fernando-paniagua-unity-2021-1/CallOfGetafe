@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1238493212}
   m_Layer: 0
   m_Name: 3DTextVida
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 1267933095408297}
   - component: {fileID: 1267933095408296}
   - component: {fileID: 1267933095408301}
+  - component: {fileID: 855680813}
   m_Layer: 0
   m_Name: EnemigoFijo
   m_TagString: Enemigo
@@ -189,7 +190,7 @@ SphereCollider:
   m_GameObject: {fileID: 3927190189937325811}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.3496058
   m_Center: {x: -0.007990599, y: 0.5997908, z: -0.0001862045}
@@ -226,8 +227,23 @@ MonoBehaviour:
   texto: {fileID: 1238493212}
   prefabExplosion: {fileID: 5386361488531305836, guid: 2979bb0e17bab2d44b5155b4390baaa4,
     type: 3}
+  prefabSangre: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
   yOffsetExplosion: 1
   nombre: TorreDelOro
+--- !u!64 &855680813
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927190189937325811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0ba5845e393991c44ba851e1dd2fa657, type: 3}
 --- !u!1 &3927387486396540143
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +257,7 @@ GameObject:
   - component: {fileID: 3951734371841942415}
   m_Layer: 0
   m_Name: TurretA_GunA_D
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,9 +338,11 @@ GameObject:
   - component: {fileID: 3933017441219549109}
   - component: {fileID: 3959239951630044745}
   - component: {fileID: 3949696729638185953}
+  - component: {fileID: 1421561978}
+  - component: {fileID: 1421561979}
   m_Layer: 0
   m_Name: TurretA_Base_B_low
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,6 +409,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1421561978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927408287073219837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2856561, y: 1.0653621, z: 0.87700933}
+  m_Center: {x: 0.0039238627, y: 0.50271654, z: -0.009746167}
+--- !u!65 &1421561979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927408287073219837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1688831, y: 0.3205423, z: 0.28875613}
+  m_Center: {x: -1.2071519, y: 0.4962913, z: -0.0042768684}
 --- !u!1 &3927459024888127419
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,9 +446,10 @@ GameObject:
   - component: {fileID: 3930197465830900243}
   - component: {fileID: 3959525838364384025}
   - component: {fileID: 3949908182452681851}
+  - component: {fileID: 1766460631}
   m_Layer: 0
   m_Name: TurretA_Base_D_low001
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +515,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1766460631
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927459024888127419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 0ba5845e393991c44ba851e1dd2fa657, type: 3}
 --- !u!1 &3927600054644850943
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,9 +540,10 @@ GameObject:
   - component: {fileID: 3933034961440487179}
   - component: {fileID: 3959672662441793303}
   - component: {fileID: 3949695452824892503}
+  - component: {fileID: 216797662}
   m_Layer: 0
   m_Name: TurretA_Base_D_low
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,6 +609,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &216797662
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927600054644850943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 0ba5845e393991c44ba851e1dd2fa657, type: 3}
 --- !u!1 &3927842155590884545
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,9 +634,10 @@ GameObject:
   - component: {fileID: 3930498255339865979}
   - component: {fileID: 3959667166836007271}
   - component: {fileID: 3951538512140380557}
+  - component: {fileID: 200755826}
   m_Layer: 0
   m_Name: TurretA_Base_D_low002
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,6 +703,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &200755826
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927842155590884545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 0ba5845e393991c44ba851e1dd2fa657, type: 3}
 --- !u!1 &3927925567275524851
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +730,7 @@ GameObject:
   - component: {fileID: 3951882236714866405}
   m_Layer: 0
   m_Name: TurretA_GunA_F
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,7 +809,7 @@ GameObject:
   - component: {fileID: 3951530224963600085}
   m_Layer: 0
   m_Name: TurretA_GunA_E
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -797,7 +886,7 @@ GameObject:
   - component: {fileID: 3928457766364310991}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,9 +916,10 @@ GameObject:
   - component: {fileID: 3930064862567714675}
   - component: {fileID: 3962302617658763275}
   - component: {fileID: 3951857358624281775}
+  - component: {fileID: 522535848}
   m_Layer: 0
   m_Name: TurretA_Base_C_low
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -896,6 +986,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &522535848
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929187252250346043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: 0ba5845e393991c44ba851e1dd2fa657, type: 3}
 --- !u!1 &3929220989616537499
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +1011,7 @@ GameObject:
   - component: {fileID: 3930352724819760045}
   m_Layer: 0
   m_Name: TurretA_GunA
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,7 +1045,7 @@ GameObject:
   - component: {fileID: 3951897294078933515}
   m_Layer: 0
   m_Name: TurretA_GunA_A
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1124,7 @@ GameObject:
   - component: {fileID: 3951410063592412911}
   m_Layer: 0
   m_Name: TurretA_GunA_C
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,7 +1204,7 @@ GameObject:
   - component: {fileID: 3951357962847228015}
   m_Layer: 0
   m_Name: TurretA_GunA_B
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

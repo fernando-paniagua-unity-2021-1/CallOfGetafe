@@ -11,7 +11,7 @@ public class SpawneadorEnemigosSimples : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("CrearEnemigo", tiempoEntreCreaciones, tiempoEntreCreaciones);
+        InvokeRepeating("CrearEnemigo", 0, tiempoEntreCreaciones);
     }
 
     void CrearEnemigo() {
