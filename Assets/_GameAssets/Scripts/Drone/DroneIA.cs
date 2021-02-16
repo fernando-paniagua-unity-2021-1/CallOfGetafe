@@ -17,7 +17,7 @@ public class DroneIA : MonoBehaviour
     }
     private void Update()
     {
-        if (agente.remainingDistance <= 0)
+        if (agente.remainingDistance <= agente.stoppingDistance)
         {
             if (navegacionSecuencial)
             {

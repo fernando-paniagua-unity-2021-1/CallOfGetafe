@@ -11,12 +11,12 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
+  - name: Asfalto
     cost: 1
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
+  - name: Terrazo
+    cost: 2
+  - name: Barro
+    cost: 4
   - name: 
     cost: 1
   - name: 
