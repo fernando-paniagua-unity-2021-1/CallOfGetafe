@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    //Varibales refrentes a la salud
+    //Variables referentes a la salud
     public int salud = 100;
     public TextMesh texto;
-    
     
     public GameObject prefabExplosion;
     public float yOffsetExplosion;
@@ -23,7 +22,10 @@ public class Enemigo : MonoBehaviour
     public void QuitarVida(int quita, ContactPoint punto)
     {
         //Grita
-        fuenteSonido.PlayOneShot(sonidoDolor);
+        if (sonidoDolor != null)
+        {
+            fuenteSonido.PlayOneShot(sonidoDolor);
+        }
         //Generamos la sangre
         Vector3 posicion = new Vector3(punto.point.x, punto.point.y, punto.point.z);
         GameObject sangre = Instantiate(prefabSangre, posicion, transform.rotation);
@@ -33,7 +35,7 @@ public class Enemigo : MonoBehaviour
         {
             GameObject marcaTiro = Instantiate(prefabBulletHole, posicion, transform.rotation);
             marcaTiro.transform.rotation = Quaternion.FromToRotation(Vector3.forward, punto.normal);
-            marcaTiro.transform.SetParent(transform);//Asignamos al enemigo como padre del bullet hole
+            marcaTiro.transform.SetParent(punto.otherCollider.transform);//Asignamos al enemigo como padre del bullet hole
         }
         //Resta la quita a la salud
         salud = salud - quita;
@@ -43,15 +45,21 @@ public class Enemigo : MonoBehaviour
             //Generamos la explosión
             Vector3 posicionExplosion = new Vector3(transform.position.x, 
                 transform.position.y + yOffsetExplosion, transform.position.z);
-            Instantiate(prefabExplosion, posicionExplosion
+            if (prefabExplosion != null)//Condición de 'existencia'
+            {
+                Instantiate(prefabExplosion, posicionExplosion
                 , transform.rotation);
-            //Destruimos el objeto
-            Destroy(gameObject);
+                //Destruimos el objeto
+                Destroy(gameObject);
+            }
         }
         else
         {
             //Actualizamos la barra de salud
-            texto.text = salud.ToString();
+            if (texto!=null)
+            {
+                texto.text = salud.ToString();
+            }
         }
     }
 }

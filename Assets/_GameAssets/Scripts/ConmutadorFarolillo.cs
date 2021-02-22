@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ConmutadorFarolillo : MonoBehaviour
 {
+
+    Rigidbody x;
     public Light luz1;
     public Light luz2;
     private void OnTriggerEnter(Collider other)
