@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public GameObject[] armas;
+    public Weapon[] armas;
     public float cadenciaCambioDeArma;
     private int idArmaActiva = 0;
     private bool cambioArmaDisponible = true;
 
     private void Start()
     {
-        armas[idArmaActiva].SetActive(true);
+        armas[idArmaActiva].gameObject.SetActive(true);
     }
     
     private void Update()
@@ -56,14 +56,14 @@ public class WeaponManager : MonoBehaviour
         if (cambioArmaDisponible == true)
         {
             //Desactivar el arma actual
-            armas[idArmaActiva].SetActive(false);
+            armas[idArmaActiva].gameObject.SetActive(false);
             //Incrementar el índice del arma actual
             idArmaActiva = idArmaActiva + delta;
             //Corregir el índice si es necesario
             if (idArmaActiva == armas.Length) idArmaActiva = armas.Length - 1;
             if (idArmaActiva < 0) idArmaActiva = 0;
             //Activar el nuevo arma actual
-            armas[idArmaActiva].SetActive(true);
+            armas[idArmaActiva].gameObject.SetActive(true);
             //Desactivamos el cambio de arma
             cambioArmaDisponible = false;
             Invoke("ActivarCambioArma", cadenciaCambioDeArma);
@@ -77,18 +77,27 @@ public class WeaponManager : MonoBehaviour
     {
         //Decir al arma activa que dispare.
         print("Apretando gatillo...");
-        armas[idArmaActiva].GetComponent<Weapon>().Disparar();
+        armas[idArmaActiva].Disparar();
     }
     private void Recargar()
     {
         //Decir al arma activa que se recarge
         print("Recargando...");
-        armas[idArmaActiva].GetComponent<Weapon>().Recargar();
+        armas[idArmaActiva].Recargar();
     }
     private void CambiarArmaPorNumero(int nuevoIdArma)
     {
-        armas[idArmaActiva].SetActive(false);
+        armas[idArmaActiva].gameObject.SetActive(false);
         idArmaActiva = nuevoIdArma;
-        armas[idArmaActiva].SetActive(true);
+        armas[idArmaActiva].gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Municion"))
+        {
+            armas[idArmaActiva].municion += 10;
+            Destroy(other.gameObject);//Destrucción de la maleta
+        }
     }
 }

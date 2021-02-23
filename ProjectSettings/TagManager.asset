@@ -8,6 +8,9 @@ TagManager:
   - Asfalto
   - Enemigo
   - Caldero
+  - FxTemporaire
+  - Muro
+  - Municion
   layers:
   - Default
   - TransparentFX

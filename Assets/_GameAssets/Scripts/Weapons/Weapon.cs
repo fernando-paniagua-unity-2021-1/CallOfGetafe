@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour
     public AudioClip sonidoDisparo;
     public AudioClip sonidoGatillazo;
     public AudioClip sonidoReload;
+    public int municion;
     public abstract void Disparar();
     public abstract void Recargar();
 

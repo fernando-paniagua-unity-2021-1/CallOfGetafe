@@ -9,9 +9,13 @@ public class M4_8 : Weapon
     public GameObject puntoSpawn;
     public override void Disparar()
     {
-        PlaySonidoDisparo();
-        GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
-        proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
+        if (municion > 0)
+        {
+            PlaySonidoDisparo();
+            GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
+            proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
+            municion--;//¡¡NO OLVIDAR RESTAR UNO A LA MUNICIÓN!!
+        }
     }
 
     public override void Recargar()

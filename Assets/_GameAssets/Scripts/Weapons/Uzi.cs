@@ -9,9 +9,13 @@ public class Uzi : Weapon
     public GameObject puntoSpawn;
     public override void Disparar()
     {
-        PlaySonidoDisparo();
-        GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
-        proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
+        if (municion > 0)
+        {
+            PlaySonidoDisparo();
+            GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
+            proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
+            municion--;
+        }
     }
 
     public override void Recargar()
