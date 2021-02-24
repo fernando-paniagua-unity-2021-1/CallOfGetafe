@@ -13,7 +13,6 @@ public class WeaponManager : MonoBehaviour
     {
         armas[idArmaActiva].gameObject.SetActive(true);
     }
-    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -99,5 +98,14 @@ public class WeaponManager : MonoBehaviour
             armas[idArmaActiva].municion += 10;
             Destroy(other.gameObject);//Destrucción de la maleta
         }
+    }
+
+    public int GetCurrentAmmo()
+    {
+        return armas[idArmaActiva].municion;
+    }
+    public string GetCurrentWeaponName()
+    {
+        return armas[idArmaActiva].name;
     }
 }

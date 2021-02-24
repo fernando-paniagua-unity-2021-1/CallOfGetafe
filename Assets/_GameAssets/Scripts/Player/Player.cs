@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int salud;
-    void Update()
+    [SerializeField]
+    private int saludMaxima;
+    [SerializeField]
+    private int salud;
+
+    public int GetSalud()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            QuitarSalud(1);
-        }
+        return salud;
     }
-    public void QuitarSalud(int merma)
+    public int GetSaludMaxima()
     {
-        salud = salud - merma;
+        return saludMaxima;
+    }
+    public void IncrementarSalud(int incrementoSalud)
+    {
+        salud = salud + incrementoSalud;
+        salud = Mathf.Min(salud, saludMaxima);
     }
 }
