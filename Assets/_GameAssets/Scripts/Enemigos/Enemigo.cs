@@ -42,16 +42,7 @@ public class Enemigo : MonoBehaviour
         //Si la salud es menor o igual que 0, tiene que morir
         if (salud <= 0)
         {
-            //Generamos la explosión
-            Vector3 posicionExplosion = new Vector3(transform.position.x, 
-                transform.position.y + yOffsetExplosion, transform.position.z);
-            if (prefabExplosion != null)//Condición de 'existencia'
-            {
-                Instantiate(prefabExplosion, posicionExplosion
-                , transform.rotation);
-                //Destruimos el objeto
-                Destroy(gameObject);
-            }
+            Morir();
         }
         else
         {
@@ -60,6 +51,19 @@ public class Enemigo : MonoBehaviour
             {
                 texto.text = salud.ToString();
             }
+        }
+    }
+    public void Morir()
+    {
+        //Generamos la explosión
+        Vector3 posicionExplosion = new Vector3(transform.position.x,
+            transform.position.y + yOffsetExplosion, transform.position.z);
+        if (prefabExplosion != null)//Condición de 'existencia'
+        {
+            Instantiate(prefabExplosion, posicionExplosion
+            , transform.rotation);
+            //Destruimos el objeto
+            Destroy(gameObject);
         }
     }
 }
