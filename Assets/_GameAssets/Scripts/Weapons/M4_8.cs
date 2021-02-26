@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class M4_8 : Weapon
 {
+    [Header("Específicos M4_8")]
     public GameObject prefabProyectil;
     public float fuerzaDisparo;
     public GameObject puntoSpawn;
@@ -15,11 +16,9 @@ public class M4_8 : Weapon
             GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
             proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
             municion--;//¡¡NO OLVIDAR RESTAR UNO A LA MUNICIÓN!!
+        } else
+        {
+            PlaySonidoGatillazo();
         }
-    }
-
-    public override void Recargar()
-    {
-        PlaySonidoRecarga();
     }
 }

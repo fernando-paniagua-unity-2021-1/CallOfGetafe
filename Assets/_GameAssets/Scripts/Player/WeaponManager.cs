@@ -95,7 +95,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Municion"))
         {
-            armas[idArmaActiva].municion += 10;
+            armas[idArmaActiva].municionTotal += other.gameObject.GetComponent<AmmoItem>().GetMunicion();
             Destroy(other.gameObject);//Destrucción de la maleta
         }
     }
@@ -103,6 +103,10 @@ public class WeaponManager : MonoBehaviour
     public int GetCurrentAmmo()
     {
         return armas[idArmaActiva].municion;
+    }
+    public int GetTotalAmmo()
+    {
+        return armas[idArmaActiva].municionTotal;
     }
     public string GetCurrentWeaponName()
     {

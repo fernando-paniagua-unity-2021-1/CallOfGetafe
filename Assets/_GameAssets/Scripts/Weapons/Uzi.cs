@@ -16,10 +16,11 @@ public class Uzi : Weapon
             proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
             municion--;
         }
+        else
+        {
+            PlaySonidoGatillazo();
+        }
     }
 
-    public override void Recargar()
-    {
-        PlaySonidoRecarga();
-    }
+   
 }
