@@ -9,6 +9,7 @@ public class TextMunicionManager : MonoBehaviour
     public WeaponManager wm;
     private void Update()
     {
-        textoMunicion.text = wm.GetCurrentAmmo().ToString();
+        textoMunicion.text = wm.GetCurrentAmmo() + "/" + wm.GetTotalAmmo();
+        //textoMunicion.text = wm.GetCurrentAmmo().ToString() + "/" + wm.GetTotalAmmo().ToString();
     }
 }

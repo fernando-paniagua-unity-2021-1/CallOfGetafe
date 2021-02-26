@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3592126893298815380}
   - component: {fileID: 3592126893298815379}
   - component: {fileID: 3592126893298815377}
+  - component: {fileID: 370602023}
   m_Layer: 0
   m_Name: Maleta
   m_TagString: Municion
@@ -59,6 +60,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3629589, y: 0.099879265, z: 0.35479736}
   m_Center: {x: 0.20592403, y: 0.04945135, z: 0.28227234}
+--- !u!114 &370602023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592126893298815381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8f0f29e2e77df4fb164087ee9f522b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  municion: 20
 --- !u!1001 &3592126894523728715
 PrefabInstance:
   m_ObjectHideFlags: 0

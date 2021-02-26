@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public abstract class Weapon : MonoBehaviour
     public AudioClip sonidoDisparo;
     public AudioClip sonidoGatillazo;
     public AudioClip sonidoReload;
+
+    [Header("UI")]
+    public Sprite icon;
     public abstract void Disparar();
 
     private void Awake()

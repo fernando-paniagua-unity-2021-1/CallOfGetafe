@@ -112,4 +112,9 @@ public class WeaponManager : MonoBehaviour
     {
         return armas[idArmaActiva].name;
     }
+
+    public Sprite GetCurrentWeaponIconSprite()
+    {
+        return armas[idArmaActiva].icon;
+    }
 }

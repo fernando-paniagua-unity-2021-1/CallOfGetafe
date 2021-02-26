@@ -12,6 +12,7 @@ TagManager:
   - Muro
   - Municion
   - SaludItem
+  - Water
   layers:
   - Default
   - TransparentFX
