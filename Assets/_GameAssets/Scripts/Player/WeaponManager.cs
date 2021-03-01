@@ -54,6 +54,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (cambioArmaDisponible == true)
         {
+            DesactivarZoomSnipper();
             //Desactivar el arma actual
             armas[idArmaActiva].gameObject.SetActive(false);
             //Incrementar el índice del arma actual
@@ -86,6 +87,7 @@ public class WeaponManager : MonoBehaviour
     }
     private void CambiarArmaPorNumero(int nuevoIdArma)
     {
+        DesactivarZoomSnipper();
         armas[idArmaActiva].gameObject.SetActive(false);
         idArmaActiva = nuevoIdArma;
         armas[idArmaActiva].gameObject.SetActive(true);
@@ -112,9 +114,18 @@ public class WeaponManager : MonoBehaviour
     {
         return armas[idArmaActiva].name;
     }
-
     public Sprite GetCurrentWeaponIconSprite()
     {
         return armas[idArmaActiva].icon;
+    }
+
+    private void DesactivarZoomSnipper()
+    {
+        //Si está el Snipper activo, restaurar el estado por si está en modo Zoom
+        if (armas[idArmaActiva].GetComponent<Snipper>() != null)
+        {
+            armas[idArmaActiva].GetComponent<Snipper>().RestaurarEstado();
+            print("restaurando");
+        }
     }
 }

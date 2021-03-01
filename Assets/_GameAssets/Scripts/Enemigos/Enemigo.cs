@@ -19,7 +19,32 @@ public class Enemigo : MonoBehaviour
     //Resto de variables
     public string nombre;
 
+    //Referencia al player //**
+    protected GameObject player; //**
+    protected float distanciaAlPlayer; //**
+
+    private void Awake()//**
+    { //**
+        player = GameObject.Find("Claudia"); //**
+    } //**
+
+    protected void Update() //**
+    { //**
+        distanciaAlPlayer = Vector3.Distance(transform.position, //**
+            player.transform.position); //**
+        print(distanciaAlPlayer);
+    } //**
+
     public void QuitarVida(int quita, ContactPoint punto)
+    {
+        QuitarVida(
+            quita,
+            new Vector3(punto.point.x, punto.point.y, punto.point.z),
+            punto.normal,
+            punto.otherCollider.transform);
+    }
+
+    public void QuitarVida(int quita, Vector3 posicionImpacto, Vector3 normal, Transform parent)
     {
         //Grita
         if (sonidoDolor != null)
@@ -27,15 +52,15 @@ public class Enemigo : MonoBehaviour
             fuenteSonido.PlayOneShot(sonidoDolor);
         }
         //Generamos la sangre
-        Vector3 posicion = new Vector3(punto.point.x, punto.point.y, punto.point.z);
+        Vector3 posicion = new Vector3(posicionImpacto.x, posicionImpacto.y, posicionImpacto.z);
         GameObject sangre = Instantiate(prefabSangre, posicion, transform.rotation);
-        sangre.transform.rotation = Quaternion.FromToRotation(Vector3.forward, punto.normal);
+        sangre.transform.rotation = Quaternion.FromToRotation(Vector3.forward, normal);
         //Generamos la marca del disparo (sólo si hay prefab de la marca)
         if (prefabBulletHole != null)
         {
             GameObject marcaTiro = Instantiate(prefabBulletHole, posicion, transform.rotation);
-            marcaTiro.transform.rotation = Quaternion.FromToRotation(Vector3.forward, punto.normal);
-            marcaTiro.transform.SetParent(punto.otherCollider.transform);//Asignamos al enemigo como padre del bullet hole
+            marcaTiro.transform.rotation = Quaternion.FromToRotation(Vector3.forward, normal);
+            marcaTiro.transform.SetParent(parent);//Asignamos al enemigo como padre del bullet hole
         }
         //Resta la quita a la salud
         salud = salud - quita;
@@ -47,12 +72,13 @@ public class Enemigo : MonoBehaviour
         else
         {
             //Actualizamos la barra de salud
-            if (texto!=null)
+            if (texto != null)
             {
                 texto.text = salud.ToString();
             }
         }
     }
+    
     public void Morir()
     {
         //Generamos la explosión
