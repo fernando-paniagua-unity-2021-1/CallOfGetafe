@@ -25,6 +25,7 @@ public class Snipper : Weapon
 
     private void Update()
     {
+
         if (Input.GetMouseButton(1))
         {
             imageScope.SetActive(true);

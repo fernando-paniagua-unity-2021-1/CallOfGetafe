@@ -50,6 +50,14 @@ public class WeaponManager : MonoBehaviour
         }
 
     }
+    private void DesactivarZoomSnipper()
+    {
+        //Si está el Snipper activo, restaurar el estado por si está en modo Zoom
+        if (armas[idArmaActiva].GetComponent<Snipper>() != null)
+        {
+            armas[idArmaActiva].GetComponent<Snipper>().RestaurarEstado();
+        }
+    }
     private void CambiarArma(int delta)
     {
         if (cambioArmaDisponible == true)
@@ -92,7 +100,6 @@ public class WeaponManager : MonoBehaviour
         idArmaActiva = nuevoIdArma;
         armas[idArmaActiva].gameObject.SetActive(true);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Municion"))
@@ -101,7 +108,6 @@ public class WeaponManager : MonoBehaviour
             Destroy(other.gameObject);//Destrucción de la maleta
         }
     }
-
     public int GetCurrentAmmo()
     {
         return armas[idArmaActiva].municion;
@@ -117,15 +123,5 @@ public class WeaponManager : MonoBehaviour
     public Sprite GetCurrentWeaponIconSprite()
     {
         return armas[idArmaActiva].icon;
-    }
-
-    private void DesactivarZoomSnipper()
-    {
-        //Si está el Snipper activo, restaurar el estado por si está en modo Zoom
-        if (armas[idArmaActiva].GetComponent<Snipper>() != null)
-        {
-            armas[idArmaActiva].GetComponent<Snipper>().RestaurarEstado();
-            print("restaurando");
-        }
     }
 }

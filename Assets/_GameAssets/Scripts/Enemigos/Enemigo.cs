@@ -32,7 +32,6 @@ public class Enemigo : MonoBehaviour
     { //**
         distanciaAlPlayer = Vector3.Distance(transform.position, //**
             player.transform.position); //**
-        print(distanciaAlPlayer);
     } //**
 
     public void QuitarVida(int quita, ContactPoint punto)

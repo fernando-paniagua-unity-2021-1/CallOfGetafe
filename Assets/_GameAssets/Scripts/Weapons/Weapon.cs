@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour
 {
-
     [Header("Configuracion")]
     public int municionTotal;//Munición total en la canana
     public int municionMaxima;//Munición máxima que admite el arma
