@@ -80,15 +80,24 @@ public class Enemigo : MonoBehaviour
     
     public void Morir()
     {
-        //Generamos la explosión
-        Vector3 posicionExplosion = new Vector3(transform.position.x,
-            transform.position.y + yOffsetExplosion, transform.position.z);
-        if (prefabExplosion != null)//Condición de 'existencia'
+        if (GetComponent<RagdollManager>() == null) {
+            //Generamos la explosión
+            Vector3 posicionExplosion = new Vector3(transform.position.x,
+                transform.position.y + yOffsetExplosion, transform.position.z);
+            if (prefabExplosion != null)//Condición de 'existencia'
+            {
+                Instantiate(prefabExplosion, posicionExplosion
+                , transform.rotation);
+                //Destruimos el objeto
+                Destroy(gameObject);
+            }
+        } else
         {
-            Instantiate(prefabExplosion, posicionExplosion
-            , transform.rotation);
-            //Destruimos el objeto
-            Destroy(gameObject);
+            //Este bloque de código solo sirve para este caso concreto (EnemigoTonto + Ragdoll)
+            GetComponent<EnemigoTonto>().Desactivar();
+            GetComponent<RagdollManager>().Morir();
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<AtacadorPorDistancia>().enabled = false;
         }
     }
 }

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PhysicsDemo : MonoBehaviour
 {
-
-    private void FixedUpdate()
+    public Transform puntoImpacto;
+    public float fuerza;
+    private void OnMouseDown()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            
-        }
+        GetComponent<Rigidbody>().AddForceAtPosition(Vector3.left * fuerza, puntoImpacto.position);
     }
 
 

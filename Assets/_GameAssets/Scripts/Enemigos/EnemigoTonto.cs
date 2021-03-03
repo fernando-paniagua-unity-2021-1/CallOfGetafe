@@ -29,4 +29,9 @@ public class EnemigoTonto : Enemigo
         transform.Rotate(0, Random.Range(giroMinimo, giroMaximo), 0);
     }
 
+    public void Desactivar()
+    {
+        CancelInvoke();
+        this.enabled = false;
+    }
 }
