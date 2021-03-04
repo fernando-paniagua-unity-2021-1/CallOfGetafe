@@ -8,14 +8,29 @@ public class TorretaDisparo : MonoBehaviour
     public float tiempoEntreDisparos;
     public float fuerzaDisparo;
     public GameObject puntoSpawn;
+    private bool activado = false;
     void Start()
     {
-        InvokeRepeating("Disparar", tiempoEntreDisparos, tiempoEntreDisparos); 
+        Activar();
     }
-
     void Disparar()
     {
-        GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
-        proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);
+        GameObject proyectil = Instantiate(prefabProyectil, 
+            puntoSpawn.transform.position, 
+            puntoSpawn.transform.rotation);
+        proyectil.GetComponent<Rigidbody>().AddForce(
+            puntoSpawn.transform.forward * fuerzaDisparo);
+    }
+    public void Pausar()
+    {
+        CancelInvoke("Disparar");
+        activado = false;
+    }
+    public void Activar()
+    {
+        if (activado) return;
+        InvokeRepeating("Disparar", tiempoEntreDisparos, 
+            tiempoEntreDisparos);
+        activado = true;
     }
 }
