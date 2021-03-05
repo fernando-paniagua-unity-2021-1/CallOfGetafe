@@ -25,6 +25,7 @@ public class Enemigo : MonoBehaviour
 
     private void Awake()//**
     { //**
+        GameObject.Find("GameManager").GetComponent<GameManager>().AddEnemigo();
         player = GameObject.Find("Claudia"); //**
     } //**
 
@@ -80,6 +81,7 @@ public class Enemigo : MonoBehaviour
     
     public void Morir()
     {
+        GameObject.Find("GameManager").GetComponent<GameManager>().QuitarEnemigo();
         if (GetComponent<RagdollManager>() == null) {
             //Generamos la explosión
             Vector3 posicionExplosion = new Vector3(transform.position.x,
