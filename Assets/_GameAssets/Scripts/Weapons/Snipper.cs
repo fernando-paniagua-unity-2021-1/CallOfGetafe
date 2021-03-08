@@ -41,6 +41,7 @@ public class Snipper : Weapon
     {
         if (municion > 0)
         {
+            base.Disparar();//¡¡¡IMPORTANTE!!!
             PlaySonidoDisparo();
             Ray rayo = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
             //Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward, Color.red, 5);

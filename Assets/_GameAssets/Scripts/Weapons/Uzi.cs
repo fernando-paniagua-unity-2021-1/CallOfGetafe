@@ -11,6 +11,7 @@ public class Uzi : Weapon
     {
         if (municion > 0)
         {
+            base.Disparar();//¡¡¡IMPORTANTE!!!
             PlaySonidoDisparo();
             GameObject proyectil = Instantiate(prefabProyectil, puntoSpawn.transform.position, puntoSpawn.transform.rotation);
             proyectil.GetComponent<Rigidbody>().AddForce(puntoSpawn.transform.forward * fuerzaDisparo);

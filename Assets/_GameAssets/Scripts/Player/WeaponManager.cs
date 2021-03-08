@@ -84,8 +84,11 @@ public class WeaponManager : MonoBehaviour
     private void ApretarGatillo()
     {
         //Decir al arma activa que dispare.
-        print("Apretando gatillo...");
-        armas[idArmaActiva].Disparar();
+        if (armas[idArmaActiva].puedeDisparar){
+            armas[idArmaActiva].Disparar();
+        } else {
+            armas[idArmaActiva].PlaySonidoGatillazo();
+        }
     }
     private void Recargar()
     {

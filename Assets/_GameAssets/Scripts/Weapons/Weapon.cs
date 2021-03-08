@@ -9,6 +9,8 @@ public abstract class Weapon : MonoBehaviour
     public int municionTotal;//Munición total en la canana
     public int municionMaxima;//Munición máxima que admite el arma
     public int municion;//Munición actual del arma
+    public float cadenciaDisparo;//Tiempo entre disparo
+    public bool puedeDisparar = true;//Indica que puede disparar
 
     [Header("Sonido")]
     public AudioSource audioSource;
@@ -18,7 +20,14 @@ public abstract class Weapon : MonoBehaviour
 
     [Header("UI")]
     public Sprite icon;
-    public abstract void Disparar();
+    public virtual void Disparar() {
+        puedeDisparar = false;
+        Invoke("RestaurarDisparo",cadenciaDisparo);
+    }
+    private void RestaurarDisparo(){
+        puedeDisparar=true;
+    }
+
 
     protected void Awake()
     {

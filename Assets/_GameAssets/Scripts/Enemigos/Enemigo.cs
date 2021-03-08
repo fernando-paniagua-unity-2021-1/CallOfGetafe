@@ -68,14 +68,12 @@ public class Enemigo : MonoBehaviour
         if (salud <= 0)
         {
             Morir();
+            salud = 0;
         }
-        else
+        //Actualizamos la barra de salud
+        if (texto != null)
         {
-            //Actualizamos la barra de salud
-            if (texto != null)
-            {
-                texto.text = salud.ToString();
-            }
+            texto.text = salud.ToString();
         }
     }
     
