@@ -41896,6 +41896,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6148296076156202314, guid: 04255ed7ab04b6d46bf0d840ecaa536a,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6148296076856914335, guid: 04255ed7ab04b6d46bf0d840ecaa536a,
         type: 3}
       propertyPath: cadenciaDisparo

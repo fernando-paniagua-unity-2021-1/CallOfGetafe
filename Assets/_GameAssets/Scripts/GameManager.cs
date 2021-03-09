@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     }
     public void QuitarEnemigo(){
         numeroDeEnemigosVivos--;
+        print("Numero de enemigos:" + numeroDeEnemigosVivos);
         if (numeroDeEnemigosVivos==0){
+            print("Creando boss");
             Instantiate(prefabBoss, posicionBoss);
         }
     }

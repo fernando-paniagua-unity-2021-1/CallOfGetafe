@@ -22,14 +22,6 @@ public class RagdollManager : MonoBehaviour
         GetComponent<Collider>().enabled = true;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Morir();
-        }
-    }
-
     public void Morir()
     {
         //Desactivamos la animación
