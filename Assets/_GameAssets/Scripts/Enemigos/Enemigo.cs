@@ -22,7 +22,7 @@ public class Enemigo : MonoBehaviour
     //Referencia al player //**
     protected GameObject player; //**
     protected float distanciaAlPlayer; //**
-
+    
     private void Awake()//**
     { //**
         GameObject.Find("GameManager").GetComponent<GameManager>().AddEnemigo();
@@ -99,5 +99,8 @@ public class Enemigo : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<AtacadorPorDistancia>().enabled = false;
         }
+    }
+    public float GetDistanciaAlPlayer(){
+        return distanciaAlPlayer;
     }
 }

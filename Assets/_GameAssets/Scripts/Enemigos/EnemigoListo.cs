@@ -38,4 +38,8 @@ public class EnemigoListo : Enemigo
         if (distanciaAlPlayer <= distanciaSeguimiento) return;
         transform.Rotate(0, Random.Range(giroMinimo, giroMaximo), 0);
     }
+
+    public float GetDistanciaSeguimiento(){
+        return distanciaSeguimiento;
+    }
 }
